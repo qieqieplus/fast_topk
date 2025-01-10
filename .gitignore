@@ -1,0 +1,8 @@
+.idea
+cmake-build-debug
+CMakeFiles
+tests/_deps
+tests/cmake_install.cmake
+tests/lib
+tests/CMakeCache.txt
+tests/CMakeFiles
