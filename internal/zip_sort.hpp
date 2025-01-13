@@ -159,9 +159,12 @@ void SelectionZipSort(Comparator comp, size_t index1, size_t index2, T begin,
 }
 
 template <typename T>
-using ConstRefIfNotPod =
-    std::conditional_t<std::is_pod_v<std::decay_t<T>>, std::decay_t<T>,
-                       const std::decay_t<T> &>;
+inline constexpr bool is_pod_v = std::is_standard_layout_v<T> && std::is_trivial_v<T>;
+
+template <typename T>
+using ConstRefIfNotPod = std::conditional_t<
+    is_pod_v<std::decay_t<T>>,
+    std::decay_t<T>, const std::decay_t<T> &>;
 
 template <typename Comparator, typename T, typename... U>
 FAST_TOPK_INLINE size_t PivotPartition(Comparator comp, size_t index1, size_t index2,
