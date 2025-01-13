@@ -61,7 +61,7 @@ using index_sequence_all_but_last_t = typename index_sequence_all_but_last_impl<
     std::index_sequence<Ints...>>::type;
 
 template <typename T>
-inline constexpr bool IsFloatingType() {
+FAST_TOPK_INLINE constexpr bool IsFloatingType() {
   return std::is_floating_point<std::decay_t<T>>::value;
 }
 

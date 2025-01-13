@@ -21,6 +21,10 @@ Check [test](tests/test.cpp) or [benchmark](tests/bench.cpp) as examples.
 * CPU: Intel Core i9-9880H @ 2.30GHz
 * Compiler: Apple clang version 16.0.0
 * Sources: [fast topk](tests/bench.cpp) and [faiss](https://github.com/facebookresearch/faiss/blob/main/benchs/bench_heap_replace.cpp)
+* Other methods, such as torch.topk and std::nth_element, were also benchmarked but showed significantly worse results.
+
+## Future Plans
+* GPU accelerated implementation with radix k-th selection.
 
 ## Acknowledgements
 This library benefits from the excellent work done by the Google Research's [ScaNN (Scalable Nearest Neighbors)](https://github.com/google-research/google-research/tree/master/scann) project.

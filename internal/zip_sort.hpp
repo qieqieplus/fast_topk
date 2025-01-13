@@ -41,7 +41,7 @@ class DefaultComparator {
 };
 
 template <typename T, typename Comparator>
-inline size_t MedianOf3(Comparator comp, T iter, size_t index1, size_t index2) {
+FAST_TOPK_INLINE size_t MedianOf3(Comparator comp, T iter, size_t index1, size_t index2) {
   // DCHECK_GT(index2, index1);
   const size_t mid_index = index1 + (index2 - index1) / 2;
   const auto &mid = iter[mid_index];
@@ -111,7 +111,7 @@ size_t MedianOf9(Comparator comp, T iter, size_t index1, size_t index2) {
 }
 
 template <typename T, typename... U>
-inline void ZipSwap(size_t index1, size_t index2, T begin) {
+FAST_TOPK_INLINE void ZipSwap(size_t index1, size_t index2, T begin) {
   std::swap(begin[index1], begin[index2]);
 }
 
@@ -119,13 +119,13 @@ template <typename T, typename... U>
 void ZipSwap(size_t index1, size_t index2, T begin, U... rest);
 
 template <typename T, typename... U>
-inline void ZipSwapRecursionHelper(size_t index1, size_t index2, T begin, T end,
+FAST_TOPK_INLINE void ZipSwapRecursionHelper(size_t index1, size_t index2, T begin, T end,
                                    U... rest) {
   ZipSwap(index1, index2, begin, rest...);
 }
 
 template <typename T, typename... U>
-inline void ZipSwap(size_t index1, size_t index2, T begin, U... rest) {
+FAST_TOPK_INLINE void ZipSwap(size_t index1, size_t index2, T begin, U... rest) {
   std::swap(begin[index1], begin[index2]);
   ZipSwapRecursionHelper(index1, index2, rest...);
 }
@@ -164,7 +164,7 @@ using ConstRefIfNotPod =
                        const std::decay_t<T> &>;
 
 template <typename Comparator, typename T, typename... U>
-inline size_t PivotPartition(Comparator comp, size_t index1, size_t index2,
+FAST_TOPK_INLINE size_t PivotPartition(Comparator comp, size_t index1, size_t index2,
                              T begin, U... rest) {
   // DCHECK_GE(index2 - index1, 3);
   const size_t median_index = MedianOf3(comp, begin, index1, index2);
@@ -356,7 +356,7 @@ FAST_TOPK_ATTRIBUTE_NOINLINE void ZipHeapSort(Comparator comp, size_t index1,
   }
 }
 
-inline size_t ComputeDepthLimit(const size_t range_size) {
+FAST_TOPK_INLINE size_t ComputeDepthLimit(const size_t range_size) {
   static_assert(sizeof(size_t) == 4 || sizeof(size_t) == 8,
                 "Unknown architecture.  Size_t is neither 32 nor 64-bit.");
   if (range_size == 0) {

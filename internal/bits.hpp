@@ -24,24 +24,24 @@
 
 namespace internal {
 
-inline size_t NextPowerOfTwo(size_t x) {
+FAST_TOPK_INLINE size_t NextPowerOfTwo(size_t x) {
   return (x & (x - 1)) ? static_cast<size_t>(1)
                              << (sizeof(size_t) * 8 - std::countl_zero(x))
                        : x;
 }
 
 template <typename T>
-inline bool IsPowerOfTwo(const T x) {
+FAST_TOPK_INLINE bool IsPowerOfTwo(const T x) {
   return x && ((x & (x - 1)) == 0);
 }
 
 template <typename T>
-inline int Log2Floor(T n) {
+FAST_TOPK_INLINE int Log2Floor(T n) {
   return std::bit_width(n) - 1;
 }
 
 template <typename T>
-inline int Log2Ceiling(T n) {
+FAST_TOPK_INLINE int Log2Ceiling(T n) {
   int floor = Log2Floor(n);
   return (n & (n - 1)) ? (floor + 1) : floor;
 }
