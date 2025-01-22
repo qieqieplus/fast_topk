@@ -18,12 +18,12 @@
 #ifndef INTERNAL_TOPK_AVX2_H_
 #define INTERNAL_TOPK_AVX2_H_
 
-#include "avx2.hpp"
-#include "bits.hpp"
-#include "common.hpp"
-#include "span.hpp"
-#include "util.hpp"
-#include "zip_sort.hpp"
+#include "internal/avx2.hpp"
+#include "internal/bits.hpp"
+#include "internal/common.hpp"
+#include "internal/span.hpp"
+#include "internal/util.hpp"
+#include "internal/zip_sort.hpp"
 
 namespace internal {
 

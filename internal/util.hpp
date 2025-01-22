@@ -21,7 +21,7 @@
 #include <type_traits>
 #include <utility>
 
-#include "common.hpp"
+#include "internal/common.hpp"
 
 template <typename T, typename U>
 constexpr bool IsSame() {

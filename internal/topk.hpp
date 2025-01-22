@@ -20,10 +20,10 @@
 
 #include <atomic>
 
-#include "common.hpp"
-#include "span.hpp"
-#include "util.hpp"
-#include "zip_sort.hpp"
+#include "internal/common.hpp"
+#include "internal/span.hpp"
+#include "internal/util.hpp"
+#include "internal/zip_sort.hpp"
 
 #ifdef __AVX2__
 #include "topk_avx2.hpp"

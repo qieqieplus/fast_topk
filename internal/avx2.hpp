@@ -20,8 +20,8 @@
 
 #include <x86intrin.h>
 
-#include "common.hpp"
-#include "util.hpp"
+#include "internal/common.hpp"
+#include "internal/util.hpp"
 
 namespace internal {
 namespace avx2 {

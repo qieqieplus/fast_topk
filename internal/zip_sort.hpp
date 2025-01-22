@@ -23,9 +23,9 @@
 #include <type_traits>
 #include <utility>
 
-#include "bits.hpp"
-#include "common.hpp"
-#include "prefetch.hpp"
+#include "internal/bits.hpp"
+#include "internal/common.hpp"
+#include "internal/prefetch.hpp"
 
 namespace internal {
 namespace zip_sort {
